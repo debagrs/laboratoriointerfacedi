@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fontes Aura */
+  --font-sans: "Lexend", ui-sans-serif, system-ui;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-lexend: "Lexend", sans-serif;
+
+  /* Cores Técnicas */
+  --color-aura-tech-cyan: #00FFFF;
+  --color-aura-tech-blue: #1A1A30;
+  --color-aura-tech-purple: #2A2A50;
+  
+  /* Cores Conforto */
+  --color-aura-comfort-oat: #D2A979;
+  --color-aura-comfort-clay: #F48A79;
+  --color-aura-comfort-green: #86EFAC; /* Updated for better dark mode contrast */
+
+  /* Sistema de Fundo */
+  --color-dark-bg: #0A0A10;
+  --color-card-bg: #1A1A30;
+}
+
+@layer base {
+  :root {
+    font-size: 16px; /* Base 16px para tudo */
+    background-color: #0A0A10 !important;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-dark-bg text-gray-300 font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-size: 1rem; /* 16px garantido */
+  }
+
+  /* Hierarquia Tipográfica Aura */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-black uppercase italic text-white leading-tight tracking-tighter;
+  }
+
+  /* Garantia de legibilidade conforme pedido pelo usuário */
+  p, li, span, label, button, input, td {
+    font-size: 1rem !important; /* Mínimo 16px forçado em tags de texto */
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10;
+  }
+  
+  .tech-card {
+    @apply bg-aura-tech-blue/40 border border-white/10 rounded-[32px] p-8 transition-all duration-500
+           hover:border-aura-tech-cyan/30 hover:bg-white/[0.02] shadow-2xl;
+  }
+
+  /* Correção para que o !important do base não quebre classes de utilitário específicas do Tailwind */
+  .text-xs, .text-sm { font-size: 1rem !important; }
+  .text-lg { font-size: 1.125rem !important; }
+  .text-xl { font-size: 1.25rem !important; }
+  .text-2xl { font-size: 1.5rem !important; }
+}
+
+/* Scrollbar Custom */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0A0A10; }
+::-webkit-scrollbar-thumb { 
+  background: rgba(0, 255, 255, 0.2); 
+  border-radius: 5px; 
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 255, 255, 0.4); }

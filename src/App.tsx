@@ -2321,7 +2321,7 @@ const modules: ModuleData[] = [
                       <h6 className="text-lg font-bold text-white uppercase mb-2">Google Antigravity</h6>
                       <p className="text-base text-gray-200 font-mono mb-4">Agente IA avançado de desenvolvimento que atua direto no código, refatorando interfaces, criando componentes e resolvendo bugs de forma autônoma e colaborativa.</p>
                     </div>
-                    <ReferenceLink title="Tecnologia DeepMind" url="https://deepmind.google/" />
+                    <ReferenceLink title="Acessar Antigravity" url="https://antigravity.google/?utm_source=deepmind.google&utm_medium=referral&utm_campaign=gdm&utm_content=" />
                   </div>
 
                   {/* Google AI Studio */}
@@ -2330,7 +2330,7 @@ const modules: ModuleData[] = [
                       <h6 className="text-lg font-bold text-white uppercase mb-2">Google AI Studio</h6>
                       <p className="text-base text-gray-200 font-mono mb-4">O ambiente mais rápido para prototipar agentes generativos e explorar as capacidades multimodais nativas da família Gemini.</p>
                     </div>
-                    <ReferenceLink title="Acessar AI Studio" url="https://aistudio.google.com/" />
+                    <ReferenceLink title="Acessar AI Studio" url="https://aistudio.google.com/prompts/new_chat?utm_source=deepmind.google&utm_medium=referral&utm_campaign=gdm&utm_content=" />
                   </div>
 
                   {/* Claude */}

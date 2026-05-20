@@ -106,32 +106,32 @@ export const DataVisualizationShowcase = () => {
                 )},
                 { u: "Correlação", g: "Pontos (scatter)", chart: (
                   <div className="w-full h-16 relative flex items-center justify-center border-l-2 border-b-2 border-white/20 mx-auto max-w-[8rem] translate-y-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[10%] left-[10%]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[30%] left-[25%] opacity-70"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[20%] left-[40%]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[50%] left-[55%] opacity-50"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[40%] left-[70%]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[80%] left-[85%]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[10%] left-[10%] shadow-[0_0_8px_rgba(0,255,153,0.5)]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[30%] left-[25%] shadow-[0_0_8px_rgba(0,255,153,0.5)]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[20%] left-[40%] shadow-[0_0_8px_rgba(0,255,153,0.5)]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[50%] left-[55%] shadow-[0_0_8px_rgba(0,255,153,0.5)]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[40%] left-[70%] shadow-[0_0_8px_rgba(0,255,153,0.5)]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-aura-comfort-green absolute bottom-[80%] left-[85%] shadow-[0_0_8px_rgba(0,255,153,0.8)]"></div>
                   </div>
                 )},
                 { u: "Distribuição", g: "Histograma / Boxplot", chart: (
-                  <div className="flex items-end justify-center gap-[1px] h-16 w-full max-w-[8rem] mx-auto">
-                    <div className="w-full bg-aura-tech-blue/40 h-[20%] rounded-t-sm"></div>
-                    <div className="w-full bg-aura-tech-blue/60 h-[40%] rounded-t-sm"></div>
-                    <div className="w-full bg-aura-tech-blue/90 h-[80%] rounded-t-sm"></div>
-                    <div className="w-full bg-aura-tech-blue h-[100%] rounded-t-sm shadow-[0_0_8px_rgba(43,89,195,0.6)]"></div>
-                    <div className="w-full bg-aura-tech-blue/80 h-[60%] rounded-t-sm"></div>
-                    <div className="w-full bg-aura-tech-blue/30 h-[30%] rounded-t-sm"></div>
+                  <div className="flex items-end justify-center gap-[2px] h-16 w-full max-w-[8rem] mx-auto">
+                    <div className="w-full bg-aura-tech-cyan/50 h-[20%] rounded-t-sm"></div>
+                    <div className="w-full bg-aura-tech-cyan/70 h-[40%] rounded-t-sm"></div>
+                    <div className="w-full bg-aura-tech-cyan/90 h-[80%] rounded-t-sm"></div>
+                    <div className="w-full bg-aura-comfort-oat h-[100%] rounded-t-sm shadow-[0_0_12px_rgba(255,204,153,0.6)]"></div>
+                    <div className="w-full bg-aura-tech-cyan/80 h-[60%] rounded-t-sm"></div>
+                    <div className="w-full bg-aura-tech-cyan/40 h-[30%] rounded-t-sm"></div>
                   </div>
                 )},
                 { u: "Parte-todo hierárquico", g: "Treemap", chart: (
                   <div className="w-full h-16 flex gap-1 justify-center max-w-[8rem] mx-auto">
-                    <div className="w-[60%] h-full bg-white/20 rounded-sm hover:bg-aura-tech-cyan transition-colors"></div>
+                    <div className="w-[60%] h-full bg-aura-tech-cyan rounded-sm hover:brightness-125 transition-all cursor-pointer"></div>
                     <div className="w-[40%] h-full flex flex-col gap-1">
-                      <div className="h-[60%] w-full bg-white/10 rounded-sm hover:bg-aura-comfort-clay transition-colors"></div>
+                      <div className="h-[60%] w-full bg-aura-comfort-clay rounded-sm hover:brightness-125 transition-all cursor-pointer"></div>
                       <div className="h-[40%] w-full flex gap-1">
-                        <div className="w-[50%] h-full bg-white/5 rounded-sm hover:bg-aura-comfort-green transition-colors"></div>
-                        <div className="w-[50%] h-full bg-white/5 rounded-sm hover:bg-aura-tech-blue transition-colors"></div>
+                        <div className="w-[50%] h-full bg-aura-comfort-green rounded-sm hover:brightness-125 transition-all cursor-pointer"></div>
+                        <div className="w-[50%] h-full bg-aura-comfort-oat rounded-sm hover:brightness-125 transition-all cursor-pointer"></div>
                       </div>
                     </div>
                   </div>

@@ -2315,13 +2315,22 @@ const modules: ModuleData[] = [
             <ModuleSection title="Agentes & IA (A Nova Fronteira)" icon={Sparkles}>
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Antigravity */}
+                  {/* Google Antigravity */}
                   <div className="p-5 bg-white/5 border border-white/10 rounded-2xl border-l-aura-tech-cyan border-l-4 flex flex-col justify-between">
                     <div>
-                      <h6 className="text-lg font-bold text-white uppercase mb-2">Antigravity</h6>
+                      <h6 className="text-lg font-bold text-white uppercase mb-2">Google Antigravity</h6>
                       <p className="text-base text-gray-200 font-mono mb-4">Agente IA avançado de desenvolvimento que atua direto no código, refatorando interfaces, criando componentes e resolvendo bugs de forma autônoma e colaborativa.</p>
                     </div>
-                    <ReferenceLink title="Google DeepMind" url="https://deepmind.google/" />
+                    <ReferenceLink title="Tecnologia DeepMind" url="https://deepmind.google/" />
+                  </div>
+
+                  {/* Google AI Studio */}
+                  <div className="p-5 bg-white/5 border border-white/10 rounded-2xl border-l-aura-tech-cyan border-l-4 flex flex-col justify-between">
+                    <div>
+                      <h6 className="text-lg font-bold text-white uppercase mb-2">Google AI Studio</h6>
+                      <p className="text-base text-gray-200 font-mono mb-4">O ambiente mais rápido para prototipar agentes generativos e explorar as capacidades multimodais nativas da família Gemini.</p>
+                    </div>
+                    <ReferenceLink title="Acessar AI Studio" url="https://aistudio.google.com/" />
                   </div>
 
                   {/* Claude */}

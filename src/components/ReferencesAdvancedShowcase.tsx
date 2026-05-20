@@ -255,33 +255,33 @@ export const ReferencesAdvancedShowcase = () => {
                <FadeIn>
                  <MetaTag color="green">06. Inteligência Artificial Centrada no Humano</MetaTag>
                  <h2 className="text-5xl md:text-6xl font-lexend font-black tracking-tighter uppercase mt-6 mb-4 leading-none text-white">Human-Centered AI</h2>
-                 <p className="font-mono text-sm uppercase tracking-widest text-[#86EFAC] mb-8 font-bold">Ben Shneiderman</p>
-                 <p className="text-lg font-lexend leading-relaxed text-gray-300">
+                 <p className="font-mono text-lg uppercase tracking-widest text-[#86EFAC] mb-8 font-bold">Ben Shneiderman</p>
+                 <p className="text-xl font-lexend leading-relaxed text-gray-200">
                    Neste livro marco (2022), Shneiderman propõe uma nova visão ética e prática em que a Inteligência Artificial não substitui a agência humana, mas a amplifica. Em vez de focar apenas na autonomia de máquinas (AI-First), a abordagem HCAI foca em construir sistemas previsíveis, controláveis e seguros, empoderando as pessoas a atingirem altos níveis de performance, criatividade e colaboração.
                  </p>
                </FadeIn>
                <FadeIn delay={0.2} className="mt-8">
-                 <a href="https://hcai.site/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full font-mono text-sm uppercase tracking-widest transition-colors w-max">
-                   Site Oficial do Livro <ArrowUpRight size={16} />
+                 <a href="https://hcai.site/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full font-mono text-lg uppercase tracking-widest transition-colors w-max text-white font-bold">
+                   Site Oficial do Livro <ArrowUpRight size={24} />
                  </a>
                </FadeIn>
             </div>
             <div className="lg:col-span-7">
                <FadeIn delay={0.3} className="h-full flex flex-col justify-center">
-                 <h3 className="text-2xl font-display font-bold italic mb-6 text-gray-400">Outras Referências Clássicas do Autor</h3>
+                 <h3 className="text-2xl font-display font-bold italic mb-6 text-gray-200">Outras Referências Clássicas do Autor</h3>
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl hover:border-[#86EFAC]/30 transition-all flex flex-col justify-center">
-                       <h4 className="text-xl font-bold mb-2 text-white">Designing the User Interface</h4>
-                       <p className="text-sm font-mono text-gray-400">Um dos livros fundadores mais influentes da história da IHC, definindo os conceitos definitivos sobre manipulação direta e usabilidade (atualmente em sua 6ª edição).</p>
+                       <h4 className="text-2xl font-bold mb-2 text-white">Designing the User Interface</h4>
+                       <p className="text-lg font-mono text-gray-200">Um dos livros fundadores mais influentes da história da IHC, definindo os conceitos definitivos sobre manipulação direta e usabilidade (atualmente em sua 6ª edição).</p>
                     </div>
                     <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl hover:border-[#86EFAC]/30 transition-all flex flex-col justify-center">
-                       <h4 className="text-xl font-bold mb-2 text-white">As 8 Regras de Ouro</h4>
-                       <p className="text-sm font-mono text-gray-400">Heurísticas de interface universais criadas por ele, como "Buscar consistência", "Prevenir erros", "Feedback informativo" e "Reduzir a carga de memória de curto prazo".</p>
+                       <h4 className="text-2xl font-bold mb-2 text-white">As 8 Regras de Ouro</h4>
+                       <p className="text-lg font-mono text-gray-200">Heurísticas de interface universais criadas por ele, como "Buscar consistência", "Prevenir erros", "Feedback informativo" e "Reduzir a carga de memória de curto prazo".</p>
                     </div>
                     <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl hover:border-[#86EFAC]/30 transition-all md:col-span-2">
-                       <h4 className="text-xl font-bold mb-2 text-white">O Mantra da Visualização de Informação</h4>
-                       <p className="text-sm font-mono text-gray-400 font-bold italic text-[#D2A979]">"Overview first, zoom and filter, then details-on-demand."</p>
-                       <p className="text-sm font-mono text-gray-500 mt-2">A regra estrutural definitiva ditada por Shneiderman em 1996, usada até hoje para projetar qualquer dashboard ou sistema de visualização de dados complexo.</p>
+                       <h4 className="text-2xl font-bold mb-2 text-white">O Mantra da Visualização de Informação</h4>
+                       <p className="text-xl font-mono text-gray-200 font-bold italic text-[#D2A979]">"Overview first, zoom and filter, then details-on-demand."</p>
+                       <p className="text-lg font-mono text-gray-200 mt-2">A regra estrutural definitiva ditada por Shneiderman em 1996, usada até hoje para projetar qualquer dashboard ou sistema de visualização de dados complexo.</p>
                     </div>
                  </div>
                </FadeIn>

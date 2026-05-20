@@ -83,6 +83,10 @@ import { Objects3DVideoShowcase } from './components/Objects3DVideoShowcase';
 import { UXDesignAdvancedShowcase } from './components/UXDesignAdvancedShowcase';
 import { ImagesIllustrationsAdvancedShowcase } from './components/ImagesIllustrationsAdvancedShowcase';
 import { SVGAnimationRender } from './components/FiveIsAnimations';
+import { GamificationShowcase } from './components/GamificationShowcase';
+import { GameDesignShowcase } from './components/GameDesignShowcase';
+import { StorytellingShowcase } from './components/StorytellingShowcase';
+import { DataVisualizationShowcase } from './components/DataVisualizationShowcase';
 
 // --- Types ---
 
@@ -1491,6 +1495,31 @@ const modules: ModuleData[] = [
           </p>
           <FiveIsDiagram />
         </div>
+
+        {/* Links rápidos para as Subpáginas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+           <button onClick={() => (window as any).__navigate('12')} className="text-left p-6 bg-white/[0.04] border border-white/10 rounded-[32px] hover:bg-aura-tech-cyan/10 hover:border-aura-tech-cyan/30 transition-all group flex flex-col items-start gap-4">
+              <Library className="text-aura-tech-cyan group-hover:scale-110 transition-transform" size={32} />
+              <div>
+                 <h4 className="text-xl font-black text-white uppercase tracking-widest italic mb-1">Conceitos</h4>
+                 <p className="text-sm text-gray-400 font-mono uppercase">Glossário e Fundamentos</p>
+              </div>
+           </button>
+           <button onClick={() => (window as any).__navigate('15')} className="text-left p-6 bg-white/[0.04] border border-white/10 rounded-[32px] hover:bg-aura-comfort-oat/10 hover:border-aura-comfort-oat/30 transition-all group flex flex-col items-start gap-4">
+              <BookOpen className="text-aura-comfort-oat group-hover:scale-110 transition-transform" size={32} />
+              <div>
+                 <h4 className="text-xl font-black text-white uppercase tracking-widest italic mb-1">Publicações</h4>
+                 <p className="text-sm text-gray-400 font-mono uppercase">Artigos, TCCs e Livros</p>
+              </div>
+           </button>
+           <button onClick={() => (window as any).__navigate('16')} className="text-left p-6 bg-white/[0.04] border border-white/10 rounded-[32px] hover:bg-aura-comfort-green/10 hover:border-aura-comfort-green/30 transition-all group flex flex-col items-start gap-4">
+              <FolderKanban className="text-aura-comfort-green group-hover:scale-110 transition-transform" size={32} />
+              <div>
+                 <h4 className="text-xl font-black text-white uppercase tracking-widest italic mb-1">Projetos</h4>
+                 <p className="text-sm text-gray-400 font-mono uppercase">Portfólio do Laboratório</p>
+              </div>
+           </button>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
           <ModuleSection title="Referências" icon={BookOpen}>
@@ -1558,6 +1587,20 @@ const modules: ModuleData[] = [
         <LabProjectsShowcase />
       </div>
     )
+  },
+  {
+    id: '17',
+    title: 'Gamification',
+    subtitle: 'Jogar para engajar',
+    icon: Gamepad2,
+    content: <GamificationShowcase />
+  },
+  {
+    id: '18',
+    title: 'Design de Games',
+    subtitle: 'Criar um mundo que funciona',
+    icon: Gamepad2,
+    content: <GameDesignShowcase />
   },
   {
     id: '20',
@@ -2332,17 +2375,86 @@ const modules: ModuleData[] = [
     subtitle: 'Acessibilidade • Cores • Lexend',
     icon: ShieldCheck,
     content: <AuraDesignSystemShowcase />
+  },
+  {
+    id: '28',
+    title: 'Storytelling',
+    subtitle: 'Narrativa em Interfaces',
+    icon: BookOpen,
+    content: <StorytellingShowcase />
+  },
+  {
+    id: '29',
+    title: 'Visualização de Dados',
+    subtitle: 'Gráficos e Impacto',
+    icon: BarChart3,
+    content: <DataVisualizationShowcase />
   }
 ];
 
+// Slug mapping: module id -> URL hash slug
+const slugMap: Record<string, string> = {
+  '11': 'metodologia-5is',
+  '12': 'conceitos',
+  '15': 'publicacoes',
+  '16': 'projetos',
+  '17': 'gamification',
+  '18': 'design-de-games',
+  '19': 'ux-design',
+  '20': 'design-atomico',
+  '21': 'acessibilidade',
+  '22': 'leis-de-ux',
+  '23': 'ui-design-lab',
+  '23.1': 'tipografia',
+  '23.2': 'cores',
+  '23.3': 'componentes-ui',
+  '23.4': 'icones-sinais',
+  '23.5': 'imagens-ilustracoes',
+  '23.6': 'microanimacoes',
+  '23.7': 'objetos-3d-video',
+  '26': 'testes-de-usabilidade',
+  '14': 'ferramentas',
+  '27': 'design-system',
+  '80': 'referencias',
+  '28': 'storytelling',
+  '29': 'visualizacao-de-dados',
+};
+const slugToId: Record<string, string> = Object.fromEntries(
+  Object.entries(slugMap).map(([id, slug]) => [slug, id])
+);
+
 export default function App() {
-  const [activeModuleId, setActiveModuleId] = useState('11');
+  const getInitialId = () => {
+    const hash = window.location.hash.replace('#', '');
+    return slugToId[hash] || '11';
+  };
+
+  const [activeModuleId, setActiveModuleId] = useState(getInitialId);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeModule = modules.find(m => m.id === activeModuleId) || modules[0];
 
   // Search Logic
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Sync URL hash when module changes
+  useEffect(() => {
+    const slug = slugMap[activeModuleId];
+    if (slug) {
+      window.history.replaceState(null, '', `#${slug}`);
+    }
+  }, [activeModuleId]);
+
+  // Handle browser back/forward navigation
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      const id = slugToId[hash];
+      if (id) setActiveModuleId(id);
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
   
   const handleModuleSelection = (id: string) => {
     setActiveModuleId(id);
@@ -2436,34 +2548,52 @@ export default function App() {
                   </div>
                </div>
 
-               <div>
-                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {modules.map((m) => (
-                      <button
-                        key={m.id}
-                        onClick={() => handleModuleSelection(m.id)}
-                        className={cn(
-                          "w-full text-left p-6 rounded-[32px] flex flex-col gap-4 transition-all relative overflow-hidden group",
-                          activeModuleId === m.id 
-                            ? "bg-aura-tech-cyan text-dark-bg font-black shadow-2xl shadow-aura-tech-cyan/20 scale-[1.02] ring-4 ring-aura-tech-cyan/20" 
-                            : "bg-white/[0.03] text-gray-300 border border-white/10 hover:bg-white/10 hover:border-aura-tech-cyan/40",
-                          m.parentId && "opacity-80 scale-95"
-                        )}
-                      >
-                        <div className="flex items-center justify-between">
-                           {!m.parentId && <m.icon size={24} className={cn(activeModuleId === m.id ? "text-dark-bg" : "text-aura-tech-cyan group-hover:scale-110 transition-transform")} />}
-                           {m.parentId && <div className="w-2 h-2 rounded-full bg-aura-tech-cyan" />}
-                        </div>
-                        <div className="space-y-1">
-                          <span className={cn(
-                            "uppercase tracking-widest block leading-tight font-black italic",
-                            m.parentId ? "text-sm" : "text-xl"
-                          )}>{m.title}</span>
-                          {m.subtitle && <p className="text-[10px] font-mono opacity-60 uppercase">{m.subtitle}</p>}
-                        </div>
-                      </button>
-                    ))}
-                 </div>
+               <div className="space-y-8">
+                 {(() => {
+                   const root = modules.filter(m => !m.parentId);
+                   const children = modules.filter(m => m.parentId);
+                   return (
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                       {root.map((m) => {
+                         const myChildren = children.filter(c => c.parentId === m.id);
+                         return (
+                           <div key={m.id} className="relative group/menuitem h-full">
+                             <button onClick={() => handleModuleSelection(m.id)}
+                               className={cn("w-full text-left p-6 rounded-[32px] flex flex-col gap-4 transition-all overflow-hidden h-full border border-transparent group/btn",
+                                 activeModuleId === m.id ? "bg-aura-tech-cyan text-dark-bg shadow-2xl shadow-aura-tech-cyan/20 ring-4 ring-aura-tech-cyan/20 scale-[1.02]" : "bg-white/[0.03] text-white border-white/10 hover:bg-white/10 hover:border-aura-tech-cyan/40"
+                               )}>
+                               <div className="flex items-center justify-between">
+                                 <m.icon size={24} className={cn(activeModuleId === m.id ? "text-dark-bg" : "text-aura-tech-cyan group-hover/btn:scale-110 transition-transform")} />
+                                 <span className="text-xs font-mono opacity-50 uppercase tracking-widest">#{slugMap[m.id]}</span>
+                               </div>
+                               <div className="space-y-1">
+                                 <span className="text-xl uppercase tracking-widest block leading-tight font-black italic">{m.title}</span>
+                                 {m.subtitle && <p className="text-sm font-mono opacity-70 uppercase">{m.subtitle}</p>}
+                               </div>
+                             </button>
+
+                             {myChildren.length > 0 && (
+                               <div className="md:absolute top-[102%] left-0 w-full mt-2 md:mt-0 md:opacity-0 md:-translate-y-4 md:pointer-events-none group-hover/menuitem:opacity-100 group-hover/menuitem:translate-y-0 group-hover/menuitem:pointer-events-auto transition-all z-20">
+                                 <div className="bg-[#0f0f0f] border border-aura-tech-cyan/30 rounded-3xl p-3 shadow-2xl flex flex-col gap-1">
+                                   <p className="text-[10px] font-mono text-aura-tech-cyan uppercase tracking-[0.2em] font-black italic pl-3 opacity-80 pt-2 pb-1">↳ Subpáginas</p>
+                                   {myChildren.map(c => (
+                                     <button key={c.id} onClick={(e) => { e.stopPropagation(); handleModuleSelection(c.id); }} className="text-left p-3 rounded-2xl hover:bg-aura-tech-cyan/10 transition-colors flex items-center gap-3 w-full border border-transparent hover:border-aura-tech-cyan/20 group/sub">
+                                       <div className="w-1.5 h-1.5 bg-aura-tech-cyan rounded-full shrink-0 group-hover/sub:scale-150 transition-transform" />
+                                       <div>
+                                         <span className="text-sm font-bold text-white uppercase block leading-tight">{c.title}</span>
+                                         {c.subtitle && <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mt-0.5 block">{c.subtitle}</span>}
+                                       </div>
+                                     </button>
+                                   ))}
+                                 </div>
+                               </div>
+                             )}
+                           </div>
+                         );
+                       })}
+                     </div>
+                   );
+                 })()}
                </div>
                
                <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-8 opacity-40">
@@ -2662,38 +2792,86 @@ export default function App() {
 
           {/* Mapa do Site */}
           <div className="space-y-6">
-            <p className="text-sm font-mono text-gray-400 uppercase tracking-widest">Mapa do Site</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-4">
-              {[
-                { t: "Metodologia 5I's", id: '11' },
-                { t: 'Conceitos', id: '12' },
-                { t: 'Publicações', id: '15' },
-                { t: 'Projetos do Lab', id: '16' },
-                { t: 'Design Atômico', id: '20' },
-                { t: 'UX Design', id: '19' },
-                { t: 'Acessibilidade', id: '21' },
-                { t: 'Leis de UX', id: '22' },
-                { t: 'Testes de Uso', id: '26' },
-                { t: 'UI Design Lab', id: '23' },
-                { t: 'Tipografia', id: '23.1' },
-                { t: 'Cores', id: '23.2' },
-                { t: 'Componentes UI', id: '23.3' },
-                { t: 'Ícones & Sinais', id: '23.4' },
-                { t: 'Imagens & Ilustras', id: '23.5' },
-                { t: 'Microanimações', id: '23.6' },
-                { t: 'Objetos 3D & Vídeo', id: '23.7' },
-                { t: 'Ferramentas', id: '14' },
-                { t: 'Referências', id: '80' },
-                { t: 'Design System (Proj)', id: '27' }
-              ].map((link, i) => (
-                <button 
-                  key={i} 
-                  onClick={() => handleModuleSelection(link.id)}
-                  className="text-left text-xs text-gray-400 hover:text-aura-tech-cyan transition-colors font-lexend truncate"
-                >
-                  {link.t}
-                </button>
-              ))}
+            <p className="text-base font-mono text-gray-200 uppercase tracking-widest font-black">Mapa do Site</p>
+
+            {/* Grupo: Metodologia 5I's */}
+            <div>
+              <p className="text-sm font-mono text-aura-tech-cyan uppercase tracking-widest mb-2 font-bold">Metodologia 5I's</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-4">
+                {[
+                  { t: "Metodologia 5I's", id: '11' },
+                  { t: 'Conceitos', id: '12' },
+                  { t: 'Publicações', id: '15' },
+                  { t: 'Projetos do Lab', id: '16' },
+                ].map((link, i) => (
+                  <button key={i} onClick={() => handleModuleSelection(link.id)}
+                    className="text-left text-base text-gray-200 hover:text-aura-tech-cyan transition-colors font-lexend truncate">
+                    {link.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Grupo: Comunicação & Engajamento — lado a lado */}
+            <div>
+              <p className="text-sm font-mono text-aura-comfort-clay uppercase tracking-widest mb-2 font-bold">Comunicação & Engajamento</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-2 gap-x-4">
+                {[
+                  { t: 'Gamification', id: '17' },
+                  { t: 'Design de Games', id: '18' },
+                  { t: 'Storytelling', id: '28' },
+                  { t: 'Visualização de Dados', id: '29' },
+                ].map((link, i) => (
+                  <button key={i} onClick={() => handleModuleSelection(link.id)}
+                    className="text-left text-base text-aura-comfort-clay hover:text-white transition-colors font-lexend font-bold truncate">
+                    {link.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Grupo: UI Design Lab */}
+            <div>
+              <p className="text-sm font-mono text-aura-comfort-oat uppercase tracking-widest mb-2 font-bold">UI Design Lab</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-4">
+                {[
+                  { t: 'UI Design Lab', id: '23' },
+                  { t: 'Tipografia', id: '23.1' },
+                  { t: 'Cores', id: '23.2' },
+                  { t: 'Componentes UI', id: '23.3' },
+                  { t: 'Ícones & Sinais', id: '23.4' },
+                  { t: 'Imagens & Ilustras', id: '23.5' },
+                  { t: 'Microanimações', id: '23.6' },
+                  { t: 'Objetos 3D & Vídeo', id: '23.7' },
+                ].map((link, i) => (
+                  <button key={i} onClick={() => handleModuleSelection(link.id)}
+                    className="text-left text-base text-gray-200 hover:text-aura-comfort-oat transition-colors font-lexend truncate">
+                    {link.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Grupo: Outros módulos */}
+            <div>
+              <p className="text-sm font-mono text-gray-300 uppercase tracking-widest mb-2 font-bold">Outros Módulos</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-4">
+                {[
+                  { t: 'Design Atômico', id: '20' },
+                  { t: 'UX Design', id: '19' },
+                  { t: 'Acessibilidade', id: '21' },
+                  { t: 'Leis de UX', id: '22' },
+                  { t: 'Testes de Uso', id: '26' },
+                  { t: 'Ferramentas', id: '14' },
+                  { t: 'Referências', id: '80' },
+                  { t: 'Design System (Proj)', id: '27' },
+                ].map((link, i) => (
+                  <button key={i} onClick={() => handleModuleSelection(link.id)}
+                    className="text-left text-base text-gray-200 hover:text-aura-tech-cyan transition-colors font-lexend truncate">
+                    {link.t}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           

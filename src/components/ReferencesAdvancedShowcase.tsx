@@ -239,10 +239,21 @@ export const ReferencesAdvancedShowcase = () => {
                  Questionando o status quo tecnológico através do Design Crítico. Ética algorítmica, ecologias pós-humanas e a regeneração do Antropoceno.
                </p>
             </FadeIn>
-            <FadeIn delay={0.6} className="pt-12">
-               <div className="inline-flex flex-col items-center gap-4">
-                  <Fingerprint size={56} className="text-[#F48A79] opacity-100" />
-                  <p className="text-lg font-mono uppercase tracking-widest text-gray-300 font-bold">Anthony Dunne & Fiona Raby</p>
+            <FadeIn delay={0.6} className="pt-16 max-w-2xl mx-auto text-left">
+               <div className="p-8 bg-[#111] border border-white/10 rounded-3xl hover:border-[#F48A79]/50 transition-colors">
+                  <div className="flex items-center gap-4 mb-6">
+                     <Fingerprint size={48} className="text-[#F48A79] shrink-0" />
+                     <div>
+                        <h4 className="text-3xl font-display font-black italic text-white uppercase leading-tight">Anthony Dunne & <br/>Fiona Raby</h4>
+                        <p className="text-lg font-mono text-[#F48A79] uppercase tracking-widest mt-1 font-bold">Speculative Everything</p>
+                     </div>
+                  </div>
+                  <p className="text-xl text-gray-200 font-lexend leading-relaxed mb-8">
+                    Pioneiros do <strong>Design Especulativo</strong>. Nesta obra seminal (2013), eles argumentam que o design não deve se limitar a "resolver problemas", mas sim criar ficções materiais provocativas. Essas ficções nos ajudam a debater as consequências éticas e sociais das tecnologias antes que elas se tornem irreversíveis, desafiando a relação entre humanos, política e futuros possíveis.
+                  </p>
+                  <a href="https://mitpress.mit.edu/9780262019842/speculative-everything/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#F48A79]/10 hover:bg-[#F48A79]/20 border border-[#F48A79]/30 rounded-full font-mono text-lg uppercase tracking-widest transition-colors text-[#F48A79] font-bold">
+                    Conhecer a Obra <ArrowUpRight size={24} />
+                  </a>
                </div>
             </FadeIn>
          </div>

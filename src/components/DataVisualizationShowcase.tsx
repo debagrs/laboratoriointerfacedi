@@ -243,12 +243,20 @@ export const DataVisualizationShowcase = () => {
           <div className="space-y-6">
              <div>
                <h4 className="text-sm font-bold text-aura-tech-cyan uppercase tracking-widest mb-3">O que o lab domina:</h4>
-               <p className="text-lg font-mono text-gray-200 leading-relaxed">
-                 Observable / D3.js (liberdade total)<br/>
-                 Tableau / Power BI (dashboards gerenciais)<br/>
-                 Python (matplotlib, seaborn, plotly)<br/>
-                 R (ggplot2 – ainda rei da estatística)
-               </p>
+               <ul className="space-y-2 text-lg font-mono text-gray-200">
+                 <li><b className="text-white">Observable / D3.js:</b> Liberdade total de codificação visual.</li>
+                 <li><b className="text-white">Tableau / Power BI:</b> Dashboards gerenciais e modelagem pesada.</li>
+                 <li><b className="text-white">Google Looker Studio:</b> (Antigo Data Studio) Construção ágil de relatórios interativos e integração fluida com ecossistemas de dados.</li>
+                 <li><b className="text-white">Google Sheets:</b> Manipulação primária, limpeza de dados e testes rápidos de gráficos essenciais.</li>
+                 <li><b className="text-white">Python / R:</b> Ciência de dados profunda, bibliotecas estatísticas avançadas.</li>
+               </ul>
+             </div>
+             <div>
+               <h4 className="text-sm font-bold text-aura-tech-cyan uppercase tracking-widest mb-3">IA Aplicada (Inteligência Generativa):</h4>
+               <ul className="space-y-2 text-lg font-mono text-gray-200">
+                 <li><b className="text-white">Claude:</b> Perfeito para interpretar bases de dados complexas, extrair insights semânticos e sugerir o melhor tipo de gráfico para cada narrativa.</li>
+                 <li><b className="text-white">Antigravity:</b> Agente autônomo avançado para desenvolvimento ágil. Refatora componentes de UI, cria dashboards interativos direto no código e implementa o design system em segundos.</li>
+               </ul>
              </div>
              <div>
                <h4 className="text-sm font-bold text-aura-tech-cyan uppercase tracking-widest mb-3">Para inspirar:</h4>

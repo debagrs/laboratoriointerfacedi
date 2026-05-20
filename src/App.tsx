@@ -2315,6 +2315,24 @@ const modules: ModuleData[] = [
             <ModuleSection title="Agentes & IA (A Nova Fronteira)" icon={Sparkles}>
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Antigravity */}
+                  <div className="p-5 bg-white/5 border border-white/10 rounded-2xl border-l-aura-tech-cyan border-l-4 flex flex-col justify-between">
+                    <div>
+                      <h6 className="text-lg font-bold text-white uppercase mb-2">Antigravity</h6>
+                      <p className="text-base text-gray-200 font-mono mb-4">Agente IA avançado de desenvolvimento que atua direto no código, refatorando interfaces, criando componentes e resolvendo bugs de forma autônoma e colaborativa.</p>
+                    </div>
+                    <ReferenceLink title="Google DeepMind" url="https://deepmind.google/" />
+                  </div>
+
+                  {/* Claude */}
+                  <div className="p-5 bg-white/5 border border-white/10 rounded-2xl border-l-aura-comfort-oat border-l-4 flex flex-col justify-between">
+                    <div>
+                      <h6 className="text-lg font-bold text-white uppercase mb-2">Claude (Anthropic)</h6>
+                      <p className="text-base text-gray-200 font-mono mb-4">Poderoso LLM com capacidade ímpar de raciocínio profundo, interpretação de datasets massivos e auxílio na definição da lógica estrutural e visual de sistemas.</p>
+                    </div>
+                    <ReferenceLink title="Acessar Claude" url="https://claude.ai/" />
+                  </div>
+                  
                   {/* Bolt.new */}
                   <div className="p-5 bg-white/5 border border-white/10 rounded-2xl border-l-aura-comfort-green border-l-4 flex flex-col justify-between">
                     <div>
@@ -2335,8 +2353,6 @@ const modules: ModuleData[] = [
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-
-                  
                   {/* v0.dev */}
                   <div className="p-4 bg-white/5 border border-white/10 rounded-xl flex flex-col justify-between">
                      <div>
@@ -2355,6 +2371,17 @@ const modules: ModuleData[] = [
                      <ReferenceLink title="Acessar" url="https://www.midjourney.com/" />
                   </div>
                 </div>
+              </div>
+            </ModuleSection>
+
+            <ModuleSection title="Ecossistema de Dados" icon={BarChart3}>
+              <div className="space-y-4">
+                 <div className="grid grid-cols-1 gap-3">
+                    <div className="p-4 bg-white/5 border border-white/10 rounded-xl">
+                       <h6 className="text-md font-bold text-white uppercase mb-1">Google Sheets / Looker Studio</h6>
+                       <p className="text-base text-gray-200 font-mono">Estruturação bruta, higienização de tabelas (Sheets) e prototipagem rápida de dashboards visuais iterativos (Looker).</p>
+                    </div>
+                 </div>
               </div>
             </ModuleSection>
           </div>

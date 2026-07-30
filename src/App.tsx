@@ -2518,13 +2518,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-dark-bg selection:bg-aura-comfort-oat selection:text-aura-tech-blue text-white font-lexend">
       {/* Fixed Layout Header */}
-      <header className="fixed top-0 left-0 right-0 z-[60] glass border-b border-white/10 px-4 md:px-8 py-4 flex items-center justify-between no-print">
-        <div className="flex items-center gap-4 md:gap-5">
+      <header className="fixed top-0 left-0 right-0 z-[60] glass border-b border-white/10 px-3 sm:px-4 md:px-8 py-3 md:py-4 flex items-center justify-between no-print">
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-5 min-w-0">
           {/* Left spacer for desktop branding alignment if needed */}
           <div className="lg:w-8" />
 
-          <div className="flex items-center gap-3 md:gap-5 cursor-pointer group" onClick={() => handleModuleSelection(modules[0].id)}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-10 h-10 md:w-14 md:h-14 transition-transform group-hover:scale-105 active:scale-95 drop-shadow-[0_10px_15px_rgba(34,211,238,0.15)]">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-5 cursor-pointer group min-w-0" onClick={() => handleModuleSelection(modules[0].id)}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-9 h-9 sm:w-10 sm:h-10 md:w-14 md:h-14 shrink-0 transition-transform group-hover:scale-105 active:scale-95 drop-shadow-[0_10px_15px_rgba(34,211,238,0.15)]">
               <rect width="100" height="100" rx="24" fill="#0A0A0A" stroke="#3A4D3E" strokeWidth="4" />
               <path d="M 32 28 L 32 72 L 52 72" fill="none" stroke="#22D3EE" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
               <line x1="72" y1="48" x2="72" y2="72" stroke="#F48A79" strokeWidth="12" strokeLinecap="round" />
@@ -2540,10 +2540,10 @@ export default function App() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-4 no-print">
+        <div className="flex items-center gap-1.5 sm:gap-2 md:gap-4 no-print shrink-0">
           <button 
             onClick={() => setIsSearchOpen(true)}
-            className="p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10 text-aura-tech-cyan hover:bg-aura-tech-cyan/20 hover:scale-105 transition-all active:scale-95 shadow-xl"
+            className="p-2.5 sm:p-3 md:p-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-aura-tech-cyan hover:bg-aura-tech-cyan/20 hover:scale-105 transition-all active:scale-95 shadow-xl"
             aria-label="Pesquisa Global"
           >
             <Search size={24} />
@@ -2552,14 +2552,14 @@ export default function App() {
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={cn(
-              "flex items-center gap-3 px-6 py-3 rounded-2xl font-black uppercase tracking-[0.2em] transition-all active:scale-95 shadow-xl",
+              "flex items-center gap-2 sm:gap-3 px-3 sm:px-4 md:px-6 py-2.5 md:py-3 rounded-xl md:rounded-2xl font-black uppercase tracking-[0.12em] md:tracking-[0.2em] transition-all active:scale-95 shadow-xl",
               isMenuOpen 
                 ? "bg-aura-comfort-clay text-dark-bg shadow-aura-comfort-clay/20" 
                 : "bg-aura-tech-cyan text-dark-bg shadow-aura-tech-cyan/20 hover:scale-105"
             )}
           >
             {isMenuOpen ? <X size={20} className="animate-spin-slow" /> : <MenuIcon size={20} />}
-            <span className="text-sm md:text-base">Menu</span>
+            <span className="hidden min-[390px]:inline text-sm md:text-base">Menu</span>
           </button>
         </div>
       </header>
@@ -2571,13 +2571,13 @@ export default function App() {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -40 }}
-            className="fixed inset-0 z-50 bg-[#050505]/98 backdrop-blur-3xl pt-32 px-6 overflow-y-auto no-print"
+            className="fixed inset-0 z-50 bg-[#050505]/98 backdrop-blur-3xl pt-24 md:pt-32 px-4 sm:px-6 overflow-y-auto overscroll-contain no-print"
           >
-            <div className="max-w-7xl mx-auto space-y-12 pb-24">
-               <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+            <div className="max-w-7xl mx-auto space-y-8 md:space-y-12 pb-24">
+               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 border-b border-white/10 pb-5 md:pb-8">
                   <div className="space-y-2">
                     <p className="text-sm font-mono text-aura-tech-cyan uppercase tracking-[0.4em] font-black italic">LabInterface UFSM</p>
-                    <h2 className="text-5xl md:text-7xl font-display font-black text-white uppercase tracking-tighter italic leading-none">Exploração <br/> de Módulos</h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-7xl font-display font-black text-white uppercase tracking-tighter italic leading-none">Exploração <br/> de Módulos</h2>
                   </div>
                   <div className="p-6 bg-white/5 border border-white/10 rounded-[32px] max-w-sm hidden md:block">
                     <p className="text-xs text-gray-400 font-mono leading-relaxed">Navegue pelas metodologias, conceitos e projetos do laboratório através deste sistema de design unificado.</p>
@@ -2589,13 +2589,13 @@ export default function App() {
                    const root = modules.filter(m => !m.parentId);
                    const children = modules.filter(m => m.parentId);
                    return (
-                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
                        {root.map((m) => {
                          const myChildren = children.filter(c => c.parentId === m.id);
                          return (
                            <div key={m.id} className="relative group/menuitem h-full">
                              <button onClick={() => handleModuleSelection(m.id)}
-                               className={cn("w-full text-left p-6 rounded-[32px] flex flex-col gap-4 transition-all overflow-hidden h-full border border-transparent group/btn",
+                               className={cn("w-full text-left p-4 sm:p-5 md:p-6 rounded-2xl md:rounded-[32px] flex flex-col gap-3 md:gap-4 transition-all overflow-hidden h-full border border-transparent group/btn",
                                  activeModuleId === m.id ? "bg-aura-tech-cyan text-dark-bg shadow-2xl shadow-aura-tech-cyan/20 ring-4 ring-aura-tech-cyan/20 scale-[1.02]" : "bg-white/[0.03] text-white border-white/10 hover:bg-white/10 hover:border-aura-tech-cyan/40"
                                )}>
                                <div className="flex items-center justify-between">
@@ -2609,20 +2609,42 @@ export default function App() {
                              </button>
 
                              {myChildren.length > 0 && (
-                               <div className="md:absolute top-[102%] left-0 w-full mt-2 md:mt-0 md:opacity-0 md:-translate-y-4 md:pointer-events-none group-hover/menuitem:opacity-100 group-hover/menuitem:translate-y-0 group-hover/menuitem:pointer-events-auto transition-all z-20">
-                                 <div className="bg-[#0f0f0f] border border-aura-tech-cyan/30 rounded-3xl p-3 shadow-2xl flex flex-col gap-1">
-                                   <p className="text-[10px] font-mono text-aura-tech-cyan uppercase tracking-[0.2em] font-black italic pl-3 opacity-80 pt-2 pb-1">↳ Subpáginas</p>
-                                   {myChildren.map(c => (
-                                     <button key={c.id} onClick={(e) => { e.stopPropagation(); handleModuleSelection(c.id); }} className="text-left p-3 rounded-2xl hover:bg-aura-tech-cyan/10 transition-colors flex items-center gap-3 w-full border border-transparent hover:border-aura-tech-cyan/20 group/sub">
-                                       <div className="w-1.5 h-1.5 bg-aura-tech-cyan rounded-full shrink-0 group-hover/sub:scale-150 transition-transform" />
-                                       <div>
-                                         <span className="text-sm font-bold text-white uppercase block leading-tight">{c.title}</span>
-                                         {c.subtitle && <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mt-0.5 block">{c.subtitle}</span>}
-                                       </div>
-                                     </button>
-                                   ))}
+                               <>
+                                 {/* Mobile: subpáginas recolhidas para evitar um menu interminável. */}
+                                 <details className="md:hidden mt-2 rounded-2xl border border-aura-tech-cyan/20 bg-[#0f0f0f] overflow-hidden">
+                                   <summary className="cursor-pointer list-none px-4 py-3 flex items-center justify-between gap-3 text-aura-tech-cyan font-black uppercase tracking-widest">
+                                     <span>Subpáginas ({myChildren.length})</span>
+                                     <ChevronRight size={18} className="details-chevron shrink-0 transition-transform" />
+                                   </summary>
+                                   <div className="px-2 pb-2 flex flex-col gap-1 border-t border-white/5">
+                                     {myChildren.map(c => (
+                                       <button key={c.id} onClick={(e) => { e.stopPropagation(); handleModuleSelection(c.id); }} className="text-left p-3 rounded-xl active:bg-aura-tech-cyan/10 transition-colors flex items-center gap-3 w-full border border-transparent">
+                                         <div className="w-1.5 h-1.5 bg-aura-tech-cyan rounded-full shrink-0" />
+                                         <div className="min-w-0">
+                                           <span className="text-sm font-bold text-white uppercase block leading-tight break-words">{c.title}</span>
+                                           {c.subtitle && <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider mt-0.5 block break-words">{c.subtitle}</span>}
+                                         </div>
+                                       </button>
+                                     ))}
+                                   </div>
+                                 </details>
+
+                                 {/* Desktop: mantém o submenu por hover. */}
+                                 <div className="hidden md:block md:absolute top-[102%] left-0 w-full md:mt-0 md:opacity-0 md:-translate-y-4 md:pointer-events-none group-hover/menuitem:opacity-100 group-hover/menuitem:translate-y-0 group-hover/menuitem:pointer-events-auto transition-all z-20">
+                                   <div className="bg-[#0f0f0f] border border-aura-tech-cyan/30 rounded-3xl p-3 shadow-2xl flex flex-col gap-1">
+                                     <p className="text-[10px] font-mono text-aura-tech-cyan uppercase tracking-[0.2em] font-black italic pl-3 opacity-80 pt-2 pb-1">↳ Subpáginas</p>
+                                     {myChildren.map(c => (
+                                       <button key={c.id} onClick={(e) => { e.stopPropagation(); handleModuleSelection(c.id); }} className="text-left p-3 rounded-2xl hover:bg-aura-tech-cyan/10 transition-colors flex items-center gap-3 w-full border border-transparent hover:border-aura-tech-cyan/20 group/sub">
+                                         <div className="w-1.5 h-1.5 bg-aura-tech-cyan rounded-full shrink-0 group-hover/sub:scale-150 transition-transform" />
+                                         <div>
+                                           <span className="text-sm font-bold text-white uppercase block leading-tight">{c.title}</span>
+                                           {c.subtitle && <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mt-0.5 block">{c.subtitle}</span>}
+                                         </div>
+                                       </button>
+                                     ))}
+                                   </div>
                                  </div>
-                               </div>
+                               </>
                              )}
                            </div>
                          );

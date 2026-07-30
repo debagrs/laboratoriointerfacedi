@@ -73,3 +73,21 @@
   border-radius: 5px; 
 }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0, 255, 255, 0.4); }
+
+
+/* Menu mobile: evita overflow horizontal e melhora o acordeão de subpáginas. */
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+details[open] > summary .details-chevron {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 767px) {
+  body:has(header + div) {
+    overscroll-behavior-x: none;
+  }
+}

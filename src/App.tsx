@@ -534,8 +534,73 @@ const FiveIsDiagram = () => {
         </div>
       </div>
 
-      {/* Main Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-12 relative z-10">
+      {/* Mobile: fases em ordem metodológica 1, 2, 3, 4 e 5 */}
+      <div className="grid grid-cols-1 gap-10 relative z-10 md:hidden">
+        <PhaseBox 
+          number="1." 
+          title="Ideação" 
+          phaseId={1}
+          items={[
+            "Briefing", "Brainstorming", "Mapas Mentais", 
+            "Pesquisas com usuários", "Personas", "Busca de Referências", 
+            "Atlas Mnemosyne", "Pontos de Contato"
+          ]}
+        />
+
+        <PhaseBox 
+          number="2." 
+          title="Inambulação" 
+          phaseId={2}
+          position="bottom"
+          items={[
+            "Requisitos", "Funcionalidades", 
+            "Análise de Referências", "Análise Heurística", 
+            "Escolha de Tecnologias"
+          ]}
+        />
+
+        <PhaseBox 
+          number="3." 
+          title="Instauração" 
+          phaseId={3}
+          items={[
+            "Arq. de Informação | Ergodesign",
+            "Interaction Design | Navegação",
+            "Design Sensorial | Inf. Design",
+            "Sitemap", "Rabiscoframes", 
+            "Cardsorting", "Protótipos Papel/IA"
+          ]}
+        />
+
+        <PhaseBox 
+          number="4." 
+          title="Inspeção" 
+          phaseId={4}
+          position="bottom"
+          items={[
+            "Teste A/B",
+            "Testes de Usabilidade",
+            "Análises Heurísticas",
+            "Avaliação"
+          ]}
+        />
+
+        <PhaseBox 
+          number="5." 
+          title="Implementação"
+          phaseId={5} 
+          items={[
+            "Desenvolvimento Técnico",
+            "Produto Final",
+            "Novas Inspeções",
+            "Substituições",
+            "Atualizações"
+          ]}
+        />
+      </div>
+
+      {/* Desktop e tablet: composição visual original em zigue-zague */}
+      <div className="hidden md:grid md:grid-cols-3 gap-y-16 gap-x-12 relative z-10">
         {/* Row 1: Top Phases */}
         <PhaseBox 
           number="1." 
@@ -575,12 +640,10 @@ const FiveIsDiagram = () => {
           ]}
         />
 
-        {/* Spacer for MD screens to align zig-zag */}
         <div className="hidden md:block" />
 
-        {/* Row 2: Bottom Phases */}
         <div className="md:col-start-1 md:col-end-3 grid grid-cols-1 md:grid-cols-2 gap-12 -mt-8 md:-mt-32">
-           <PhaseBox 
+          <PhaseBox 
             number="2." 
             title="Inambulação" 
             phaseId={2}
@@ -2598,13 +2661,15 @@ export default function App() {
                                className={cn("w-full text-left p-4 sm:p-5 md:p-6 rounded-2xl md:rounded-[32px] flex flex-col gap-3 md:gap-4 transition-all overflow-hidden h-full border border-transparent group/btn",
                                  activeModuleId === m.id ? "bg-aura-tech-cyan text-dark-bg shadow-2xl shadow-aura-tech-cyan/20 ring-4 ring-aura-tech-cyan/20 scale-[1.02]" : "bg-white/[0.03] text-white border-white/10 hover:bg-white/10 hover:border-aura-tech-cyan/40"
                                )}>
-                               <div className="flex items-center justify-between">
-                                 <m.icon size={24} className={cn(activeModuleId === m.id ? "text-dark-bg" : "text-aura-tech-cyan group-hover/btn:scale-110 transition-transform")} />
-                                 <span className="text-xs font-mono opacity-50 uppercase tracking-widest">#{slugMap[m.id]}</span>
-                               </div>
-                               <div className="space-y-1">
-                                 <span className="text-xl uppercase tracking-widest block leading-tight font-black italic">{m.title}</span>
-                                 {m.subtitle && <p className="text-sm font-mono opacity-70 uppercase">{m.subtitle}</p>}
+                               <div className="grid grid-cols-[32px_minmax(0,1fr)] items-start gap-x-3 gap-y-3 w-full">
+                                 <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                                   <m.icon size={24} className={cn(activeModuleId === m.id ? "text-dark-bg" : "text-aura-tech-cyan group-hover/btn:scale-110 transition-transform")} />
+                                 </div>
+                                 <span className="text-xs font-mono opacity-50 uppercase tracking-widest justify-self-end pt-1">#{slugMap[m.id]}</span>
+                                 <div className="col-span-2 min-w-0 space-y-1 pt-1">
+                                   <span className="text-xl uppercase tracking-widest block leading-tight font-black italic break-words">{m.title}</span>
+                                   {m.subtitle && <p className="text-sm font-mono opacity-70 uppercase break-words">{m.subtitle}</p>}
+                                 </div>
                                </div>
                              </button>
 
@@ -2612,9 +2677,11 @@ export default function App() {
                                <>
                                  {/* Mobile: subpáginas recolhidas para evitar um menu interminável. */}
                                  <details className="md:hidden mt-2 rounded-2xl border border-aura-tech-cyan/20 bg-[#0f0f0f] overflow-hidden">
-                                   <summary className="cursor-pointer list-none px-4 py-3 flex items-center justify-between gap-3 text-aura-tech-cyan font-black uppercase tracking-widest">
-                                     <span>Subpáginas ({myChildren.length})</span>
-                                     <ChevronRight size={18} className="details-chevron shrink-0 transition-transform" />
+                                   <summary className="cursor-pointer list-none px-4 py-3 grid grid-cols-[minmax(0,1fr)_24px] items-center gap-3 text-aura-tech-cyan font-black uppercase tracking-[0.12em] sm:tracking-widest">
+                                     <span className="min-w-0 leading-tight break-words pr-1">Subpáginas ({myChildren.length})</span>
+                                     <span className="w-6 h-6 flex items-center justify-center justify-self-end shrink-0">
+                                       <ChevronRight size={18} className="details-chevron transition-transform" />
+                                     </span>
                                    </summary>
                                    <div className="px-2 pb-2 flex flex-col gap-1 border-t border-white/5">
                                      {myChildren.map(c => (
@@ -2944,6 +3011,5 @@ export default function App() {
     </div>
   );
 }
-
 
 

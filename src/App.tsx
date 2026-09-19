@@ -1556,6 +1556,15 @@ const modules: ModuleData[] = [
           <p className="text-base text-gray-300 font-mono leading-relaxed max-w-3xl">
             A metodologia 5I's sistematiza o processo de design de interfaces em cinco fases integradas, garantindo que a jornada do usuário seja o centro de cada decisão técnica e estética.
           </p>
+          <a
+            href="https://metodologia5-is-labinterfaceddi.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 w-fit items-center justify-center gap-3 rounded-2xl border border-aura-tech-cyan/40 bg-aura-tech-cyan/10 px-6 py-3 font-mono text-sm font-bold uppercase tracking-wider text-aura-tech-cyan transition-all hover:border-aura-tech-cyan hover:bg-aura-tech-cyan/20 hover:shadow-lg hover:shadow-aura-tech-cyan/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aura-tech-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
+          >
+            Acessar ambiente projetual do Laboratório
+            <ExternalLink size={18} aria-hidden="true" />
+          </a>
           <FiveIsDiagram />
         </div>
 
